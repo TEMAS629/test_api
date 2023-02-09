@@ -5,6 +5,7 @@ const http = require("http");
 const { response } = require("express");
 const { error } = require("console");
 const routerCar = require("./routes/car.route");
+const morgan = require("morgan");
 
 // console.log((process.env.PORT));
 
@@ -13,6 +14,7 @@ const server = http.createServer(app);
 
 const port = process.env.PORT || 3003;
 
+app.use(morgan('dev'))
 app.use(express.json());
 // работа с форматом json
 app.use(express.urlencoded({ extended: true }));
